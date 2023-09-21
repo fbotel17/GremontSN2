@@ -16,6 +16,7 @@ int main(int argc, char ** agrv)
     depile(&valeurSup, tab, &nbValues);
     cout<<valeurSup;
     empile(15, tab, &nbValues);
+    cout<<"coucou";
 
 
     affiche(tab, nbValues);
