@@ -49,7 +49,7 @@ void affichage(int tab[], int taille) {
     for (int i = 0; i < taille; i++) {
         cout << " " << tab[i]<<";";
     }
-    cout <<"]";
+    cout <<"]"<<endl;
 }
 
 
