@@ -5,7 +5,9 @@ project(TP1exo2 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(TP1exo2 main.cpp)
+add_executable(TP1exo2 main.cpp
+    functions.cpp
+    functions.h)
 
 include(GNUInstallDirs)
 install(TARGETS TP1exo2

@@ -1,15 +1,9 @@
 #include <iostream>
+#include "functions.h"
 
 using namespace std;
 
 
-
-void echange(int * nombre1, int* nombre2)
-{
-    int temp = *nombre1;
-    *nombre1 = *nombre2;
-    *nombre2= temp;
-}
 
 int main()
 {
