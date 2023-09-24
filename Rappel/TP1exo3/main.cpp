@@ -1,7 +1,11 @@
 #include <iostream>
+#include <string>
 #include "functions.h"
 
 using namespace std;
+
+const int MAX_ELEVES = 100;
+
 
 int main()
 {
@@ -17,10 +21,12 @@ int main()
 
 
             addStudent(eleve, &nombreEleves);
-            cin.ignore();
 
 
             displayStudent(eleve, nombreEleves);
+
+
+            saveStudent(eleve, nombreEleves);
 
             cout << "Appuyez sur Entrée pour continuer...";
             cin.ignore(); // Ignorer le reste de la ligne précédente
@@ -33,6 +39,8 @@ int main()
 
 
             system("clear"); // Utilisez "clear" pour macOS
+            displayStudent(eleve, nombreEleves);
+
 
 
 
@@ -62,6 +70,10 @@ int main()
         {
 
             system("clear"); // Utilisez "clear" pour macOS
+
+            const char *nomFichier = "eleves.txt"; // Nom du fichier à charger
+
+            loadStudent(eleve, MAX_ELEVES, nomFichier, nombreEleves);
 
 
             cout << "Appuyez sur Entrée pour continuer...";
