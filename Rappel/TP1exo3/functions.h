@@ -1,5 +1,9 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
+
+#include <string>
+
+using namespace std;
 typedef struct
 {
     char nom[30];
@@ -12,9 +16,9 @@ int addStudent(student *eleve, int * nombreEleves);
 
 void displayStudent(student *eleve, int  nombreEleves);
 
-void saveStudent(student *eleve, int nombreEleves);
+void saveStudent(student *eleve, int nombreEleves, string& nomFichierSave);
 
-void loadStudent(student *eleve, int maxNombreEleves, const char *nomFichier, int &nombreEleves) ;
+void loadStudent(student *eleve, int maxNombreEleves, string& nomFichier, int &nombreEleves);
 
 
 #endif // FUNCTIONS_H

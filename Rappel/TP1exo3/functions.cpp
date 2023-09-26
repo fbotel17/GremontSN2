@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip> // Pour formater le texte
 #include <fstream>
+#include <cstring>  // Pour utiliser strcat
+
 
 using namespace std;
 
@@ -9,25 +11,28 @@ const int COLUMN_WIDTH = 20; // Taille fixe pour chaque colonne
 
 int addStudent(student *eleve, int *nombreEleves) {
     cout << "Quel est le nom de l'élève ? : " << endl;
-                                                     cin.ignore(); // Ignorer le caractère de nouvelle ligne restant
-    cin.getline(eleve[*nombreEleves].nom, sizeof(eleve[*nombreEleves].nom));
+    cin.ignore(); //permet d'éviter les bug lors de la saisie
+    cin.getline(eleve[*nombreEleves].nom, sizeof(eleve[*nombreEleves].nom)); //ajoute la saisie de l'utilisateur à la structure eleve
 
     cout << "Quel est le prénom de l'élève ? : " << endl;
-                                                        cin.getline(eleve[*nombreEleves].prenom, sizeof(eleve[*nombreEleves].prenom));
+    cin.getline(eleve[*nombreEleves].prenom, sizeof(eleve[*nombreEleves].prenom));
 
     cout << "Quel est l'adresse de l'élève ? : " << endl;
-                                                        cin.getline(eleve[*nombreEleves].adresse, sizeof(eleve[*nombreEleves].adresse));
+    cin.getline(eleve[*nombreEleves].adresse, sizeof(eleve[*nombreEleves].adresse));
 
-    cout << "Quel est la classe de l'élève ? : " << endl;
-                                                        cin.getline(eleve[*nombreEleves].classe, sizeof(eleve[*nombreEleves].classe));
+    cout << "Quel est la classe de l'élève ? : gay  " << endl;
+    cin.getline(eleve[*nombreEleves].classe, sizeof(eleve[*nombreEleves].classe));
 
-    (*nombreEleves)++;
+    (*nombreEleves)++; //augmente le nombre d'élèves
 
     return *nombreEleves;
 }
 
 
 void displayStudent(student *eleve, int nombreEleves) {
+
+    //aide de chatGPT pour l'affichage car le miens était horrible
+
     const int COLUMN_WIDTH = 20; // Largeur de colonne fixe
     const int NUM_COLUMNS = 4;  // Nombre de colonnes
 
@@ -54,44 +59,47 @@ void displayStudent(student *eleve, int nombreEleves) {
 }
 
 
-void saveStudent(student *eleve, int nombreEleves) {
+void saveStudent(student *eleve, int nombreEleves, string& nomFichierSave) {
     // Ouvrir le fichier en mode écriture
-    char nomFichier[20] = "eleves.txt";
-    fstream fichier(nomFichier, ios::out);
+    string nomFichier = nomFichierSave; // Copie du contenu de nomFichierSave dans nomFichier
+    nomFichier += ".txt"; //rajoute l'extension .txt
+    fstream fichier(nomFichier, ios::out); //ouvre le fichier
 
-    // Vérifier si le fichier a été ouvert avec succès
+    // vérifie si le fichier a été ouvert avec succès
     if (!fichier.is_open()) {
         cerr << "Erreur : Impossible d'ouvrir le fichier " << nomFichier << endl;
         return;
     }
 
-    // Écrire les données existantes dans le fichier
+    // ecrit les données existantes dans le fichier
     for (int i = 0; i < nombreEleves; i++) {
         fichier << endl;
         fichier << "Nom: " << eleve[i].nom << endl;
         fichier << "Prénom: " << eleve[i].prenom << endl;
-                fichier << "Adresse: " << eleve[i].adresse << endl;
+        fichier << "Adresse: " << eleve[i].adresse << endl;
         fichier << "Classe: " << eleve[i].classe << endl;
     }
 
-    // Fermer le fichier
+    // ferme le fichier
     fichier.close();
 
     cout << "Données des élèves sauvegardées dans " << nomFichier << endl;
 }
 
 
-void loadStudent(student *eleve, int maxNombreEleves, const char *nomFichier, int &nombreEleves) {
-    // Ouvrir le fichier en mode lecture
+void loadStudent(student *eleve, int maxNombreEleves, string& nomFichier, int &nombreEleves) {
+    //chatGPT a pas mal aidé pour cette fonction, je n'avais pas la notion de buffer etc
+
+    // ouvre le fichier
     ifstream fichier(nomFichier);
 
-    // Vérifier si le fichier a été ouvert avec succès
+    // vérifie si le fichier a été ouvert avec succès
     if (!fichier.is_open()) {
         cerr << "Erreur : Impossible d'ouvrir le fichier " << nomFichier << std::endl;
         return;
     }
 
-    // Lire les données des élèves à partir du fichier
+
     nombreEleves = 0;
     char buffer[100]; // Buffer pour lire chaque ligne
     while (nombreEleves < maxNombreEleves && fichier) {
