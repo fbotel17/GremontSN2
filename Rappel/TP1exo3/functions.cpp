@@ -38,7 +38,7 @@ void displayStudent(student *eleve, int nombreEleves) {
 
     int totalWidth = (COLUMN_WIDTH + 1) * NUM_COLUMNS; // Ajouter un espace supplémentaire
 
-    // Créer la ligne de séparation en fonction de la longueur totale
+    // ça créé la ligne de séparation en fonction de la longueur totale
     string separatorLine = string(totalWidth, '-');
 
     cout << separatorLine << endl;

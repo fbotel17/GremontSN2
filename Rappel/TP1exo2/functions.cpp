@@ -22,6 +22,9 @@ void initialisation(int tab[], int* taille) {
         int i = 0;
         bool insere = false;
 
+
+        //vérifie à l'insertion de l'élément chaque valeur déjà entrer pour ranger la valeur dans l'ordre croissant
+        //La bouche décale donc tous les autres éléments plus grand vers la droite
         while (i < *taille) {
             if (saisie < tab[i]) {
                 for (int j = *taille; j > i; j--) {
@@ -57,6 +60,7 @@ int rechercheDichotomie(int tab[], int taille, int valeur) {
     int gauche = 0;
     int droite = taille - 1;
 
+    //boucle de recherche par dichotomie
     while (gauche <= droite) {
         int milieu = gauche + (droite - gauche) / 2;
 

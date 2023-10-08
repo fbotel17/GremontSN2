@@ -11,8 +11,12 @@ int main()
     int taille = 0;
     initialisation(tab, &taille);
     int searchElement;
+
+    //demande quel élément on souhaite rechercher dans le tableau
     cout<<"Quelle valeur souhaitez vous rechercher ?"<<endl;
     cin>>searchElement;
+
+    //attribut a la variable place si la fonction return true ou false
     int place=rechercheDichotomie(tab, taille, searchElement);
     if(place == -1)
     {

@@ -1,0 +1,6 @@
+#include "pile_entier"
+
+pile_entier::pile_entier()
+{
+
+}

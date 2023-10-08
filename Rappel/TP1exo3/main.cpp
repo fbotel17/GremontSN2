@@ -18,6 +18,7 @@ int main()
         system("clear"); // clear le terminal pour mac
         cout<<"Que voulez vous faire ?"<<endl<<"Tapez 1 pour ajouter un élève"<<endl<<"Tapez 2 pour afficher les élèves"<<endl<<"Tapez 3 pour enregistrer les élèves dans un fichier"<<endl<<"Tapez 4 pour charger les élèves provenants d'un fichier"<<endl<<"Tapez 0 pour exit"<<endl<< "Que choisissez vous ? : ";
         cin>>saisie;
+        //si l'utilisateur saisi 1 alors on ajoute un élève
         if(saisie == 1){
             system("clear");
 
@@ -31,6 +32,7 @@ int main()
             system("clear");
 
         }
+        //si l'utilisateur saisi 2 alors on affiche les élèves
         else if(saisie == 2)
         {
             system("clear");
@@ -42,6 +44,7 @@ int main()
             system("clear");
 
         }
+        //si l'utilisateur saisi 3 alors on save les élèves dans un fichier dont on demande le nom à l'utilisateur
         else if(saisie == 3)
         {
             system("clear");
@@ -55,6 +58,7 @@ int main()
             cin.get();
             system("clear");
         }
+        //si l'utilisateur saisi 3 alors on charge les élèves provenant d'un fichier dont on demande le nom à l'utilisateur
         else if(saisie == 4)
         {
 
