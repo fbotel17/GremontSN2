@@ -31,6 +31,7 @@ public:
     QPushButton *bouttonEmpile;
     QLabel *message;
     QPushButton *bouttonDepile;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,7 +44,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         afficheEmpile = new QLabel(centralwidget);
         afficheEmpile->setObjectName("afficheEmpile");
-        afficheEmpile->setGeometry(QRect(510, -10, 91, 311));
+        afficheEmpile->setGeometry(QRect(510, 30, 91, 311));
         valeurEmpile = new QLineEdit(centralwidget);
         valeurEmpile->setObjectName("valeurEmpile");
         valeurEmpile->setGeometry(QRect(60, 40, 113, 21));
@@ -59,6 +60,9 @@ public:
         bouttonDepile = new QPushButton(centralwidget);
         bouttonDepile->setObjectName("bouttonDepile");
         bouttonDepile->setGeometry(QRect(60, 160, 100, 32));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(510, 0, 91, 21));
         PileWidget->setCentralWidget(centralwidget);
         menubar = new QMenuBar(PileWidget);
         menubar->setObjectName("menubar");
@@ -84,6 +88,7 @@ public:
         bouttonEmpile->setText(QCoreApplication::translate("PileWidget", "Empiler", nullptr));
         message->setText(QString());
         bouttonDepile->setText(QCoreApplication::translate("PileWidget", "Depiler", nullptr));
+        label_2->setText(QCoreApplication::translate("PileWidget", "Tableau LIFO :", nullptr));
     } // retranslateUi
 
 };

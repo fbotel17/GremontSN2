@@ -18,54 +18,50 @@ PileWidget::~PileWidget()
 void PileWidget::afficheEmpile() {
 
 
-    QString affichage = ""; // Déclaration de la variable ici
+    QString affichage = "";
 
+    //boucle pour récupérer toutes les donées de la file
     for (int index = 0; index < pile.getHauteur(); ++index) {
         int element = pile.getPile(index);
-        // Convertissez l'élément en chaîne de caractères pour l'ajouter à la chaîne d'affichage.
         QString elementStr = QString::number(element);
         affichage += elementStr + "\n";
     }
 
-    // Définissez le texte de votre widget avec la chaîne d'affichage complète.
+    //fait en sorte que le texte s'affiche en haut de la "div"
+    ui->afficheEmpile->setAlignment(Qt::AlignTop);
     ui->afficheEmpile->setText(affichage);
 }
 
 void PileWidget::empiler() {
+    //récupère le contenu de l'entrée utilisateur
     QString contenuTexte = ui->valeurEmpile->text();
 
-    // Essayez de convertir le contenu en un entier (vous pouvez utiliser .toInt())
     bool conversionOk;
     int valeur = contenuTexte.toInt(&conversionOk);
     QString valNew = QString::number(valeur);
 
 
-    // Vérifiez si la conversion a réussi
     if (conversionOk) {
-        // Vérifiez d'abord si la pile est pleine
         if (!pile.pleine()) {
-            // Si la pile n'est pas pleine, empilez la valeur
             pile.empile(valeur);
 
-            // Affichez la pile mise à jour
             afficheEmpile();
             ui->message->setText("Valeur ajoutée : " + valNew);
 
 
-            // Réinitialisez le champ de texte
             ui->valeurEmpile->clear();
         } else {
-            // La pile est pleine, affichez un message d'erreur
-            ui->message->setText("Votre pile est pleine");
+            ui->message->setText("Votre file est pleine");
         }
     } else {
-        // Gérez l'erreur de conversion ici si nécessaire
+        ui->message->setText("Votre valeur n'est pas un entier");
+        ui->valeurEmpile->clear();
+
     }
 }
 
 void PileWidget::depiler() {
 
-    // Vérifiez d'abord si la pile est vide
     if (!pile.vide()) {
         int valSup = pile.depile();
         QString valeurSup = QString::number(valSup);
@@ -74,8 +70,7 @@ void PileWidget::depiler() {
 
         ui->message->setText("Valeur supprimée : " + valeurSup);
     } else {
-        // La pile est vide, affichez un message d'erreur ou un message indiquant qu'elle est vide
-        ui->message->setText("La pile est vide");
+        ui->message->setText("La file est vide");
     }
 }
 
