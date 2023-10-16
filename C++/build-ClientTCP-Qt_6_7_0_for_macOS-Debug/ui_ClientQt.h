@@ -35,6 +35,12 @@ public:
     QLabel *connectionStatusLabel;
     QPushButton *envoi;
     QTextEdit *contenuMess;
+    QPushButton *celcius;
+    QPushButton *fara;
+    QPushButton *hyg;
+    QLineEdit *numCapteur;
+    QLabel *reponseServ;
+    QLabel *messErreur;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -65,13 +71,31 @@ public:
         disconnect->setGeometry(QRect(130, 210, 100, 32));
         connectionStatusLabel = new QLabel(centralwidget);
         connectionStatusLabel->setObjectName("connectionStatusLabel");
-        connectionStatusLabel->setGeometry(QRect(370, 80, 281, 31));
+        connectionStatusLabel->setGeometry(QRect(270, 40, 281, 31));
         envoi = new QPushButton(centralwidget);
         envoi->setObjectName("envoi");
         envoi->setGeometry(QRect(110, 360, 141, 32));
         contenuMess = new QTextEdit(centralwidget);
         contenuMess->setObjectName("contenuMess");
         contenuMess->setGeometry(QRect(100, 290, 161, 61));
+        celcius = new QPushButton(centralwidget);
+        celcius->setObjectName("celcius");
+        celcius->setGeometry(QRect(370, 230, 100, 32));
+        fara = new QPushButton(centralwidget);
+        fara->setObjectName("fara");
+        fara->setGeometry(QRect(490, 230, 100, 32));
+        hyg = new QPushButton(centralwidget);
+        hyg->setObjectName("hyg");
+        hyg->setGeometry(QRect(610, 230, 100, 32));
+        numCapteur = new QLineEdit(centralwidget);
+        numCapteur->setObjectName("numCapteur");
+        numCapteur->setGeometry(QRect(480, 180, 113, 21));
+        reponseServ = new QLabel(centralwidget);
+        reponseServ->setObjectName("reponseServ");
+        reponseServ->setGeometry(QRect(340, 280, 431, 71));
+        messErreur = new QLabel(centralwidget);
+        messErreur->setObjectName("messErreur");
+        messErreur->setGeometry(QRect(360, 140, 341, 31));
         ClientQt->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ClientQt);
         menubar->setObjectName("menubar");
@@ -85,6 +109,9 @@ public:
         QObject::connect(connect, SIGNAL(clicked()), ClientQt, SLOT(onConnectButtonClicked()));
         QObject::connect(disconnect, SIGNAL(clicked()), ClientQt, SLOT(onDisconnectButtonClicked()));
         QObject::connect(envoi, SIGNAL(clicked()), ClientQt, SLOT(onSendMessageButtonClicked()));
+        QObject::connect(celcius, SIGNAL(clicked()), ClientQt, SLOT(onSendCelClicked()));
+        QObject::connect(fara, SIGNAL(clicked()), ClientQt, SLOT(onSendFarClicked()));
+        QObject::connect(hyg, SIGNAL(clicked()), ClientQt, SLOT(onSendHygClicked()));
 
         QMetaObject::connectSlotsByName(ClientQt);
     } // setupUi
@@ -98,6 +125,11 @@ public:
         disconnect->setText(QCoreApplication::translate("ClientQt", "D\303\251connexion", nullptr));
         connectionStatusLabel->setText(QString());
         envoi->setText(QCoreApplication::translate("ClientQt", "Envoyer message", nullptr));
+        celcius->setText(QCoreApplication::translate("ClientQt", "\302\260C", nullptr));
+        fara->setText(QCoreApplication::translate("ClientQt", "\302\260F", nullptr));
+        hyg->setText(QCoreApplication::translate("ClientQt", "Hygrom\303\251trie", nullptr));
+        reponseServ->setText(QString());
+        messErreur->setText(QString());
     } // retranslateUi
 
 };
