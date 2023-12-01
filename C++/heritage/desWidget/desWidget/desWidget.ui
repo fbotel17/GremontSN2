@@ -27,7 +27,7 @@
      <string>Tirer le dé</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="afficheDe">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -40,7 +40,7 @@
      <string>Afficher la valeur</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="remiseZero">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -53,7 +53,7 @@
      <string>Rémise à zéro du score</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="scoreTot">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -79,6 +79,19 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="afficheScore">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>270</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -94,7 +107,15 @@
      <string>fichier</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuchoisir">
+    <property name="title">
+     <string>choisir</string>
+    </property>
+    <addaction name="actiondes"/>
+    <addaction name="actiondehisto"/>
+   </widget>
    <addaction name="menufichier"/>
+   <addaction name="menuchoisir"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -105,6 +126,16 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actiondes">
+   <property name="text">
+    <string>des</string>
+   </property>
+  </action>
+  <action name="actiondehisto">
+   <property name="text">
+    <string>dehisto</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

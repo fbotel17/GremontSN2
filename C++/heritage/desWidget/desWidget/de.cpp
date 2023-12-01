@@ -5,17 +5,20 @@
 
 // Constructeur par défaut
 de::de() {
+	scoreTotal = 0;
 	initialiserAleatoire();
 	lancerDe();
+
 }
 
 // Constructeur avec initialisation de la valeur
 de::de(int valeurInitiale) : valeur(valeurInitiale) {}
 
 // Méthode pour lancer le dé
-int de::lancerDe() {
+void de::lancerDe() {
 	valeur = rand() % 6 + 1;
-	return valeur;
+	this->scoreTotal = scoreTotal + valeur;
+	
 }
 
 // Méthode pour remettre le score à 0
@@ -24,29 +27,28 @@ void de::resetScore() {
 }
 
 // Surcharge de l'opérateur d'incrémentation (++dd)
-void de::operator++() {
+de& de::operator++(int) {
 	lancerDe();
+	return *this;
 }
 
 // Surcharge de l'opérateur d'addition (n += dd)
-void de::operator+=(int& n) {
-	n += valeur;
+int operator+=(int& n, de de) {
+	n = de.valeur;
+	return n;
 }
 
 // Surcharge de l'opérateur d'affectation (dd = 0)
 void de::operator=(int val) {
-	resetScore();
+	scoreTotal = val;
 }
 
 // Surcharge de l'opérateur de comparaison (n < dd)
-bool de::operator<(int n) const {
-	return n < valeur;
+int operator<(int& n, de de) {
+	n = de.scoreTotal;
+	return n;
 }
 
-// Méthode pour afficher la valeur du dé
-void de::afficher() const {
-	std::cout << "Dé " << valeur << std::endl;
-}
 
 // Méthode pour initialiser la graine du générateur aléatoire
 void de::initialiserAleatoire() {

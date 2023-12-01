@@ -3,6 +3,7 @@ class de
 {
 private:
 	int valeur;
+	int scoreTotal;
 
 public:
 	// Constructeurs
@@ -10,12 +11,12 @@ public:
 	de(int valeur); // Constructeur avec initialisation de la valeur
 
 	// Méthodes
-	int lancerDe();
+	void lancerDe();
 	void resetScore();
-	void operator++();
-	void operator+=(int& n);
+	de& operator++(int);
+	friend int operator+=(int& n, de de);
 	void operator=(int val);
-	bool operator<(int n) const;
+	friend int operator<(int& n, de de);
 	void afficher() const;
 
 private:
