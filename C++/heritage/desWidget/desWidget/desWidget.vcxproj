@@ -87,11 +87,13 @@
     <QtUic Include="desWidget.ui" />
     <QtMoc Include="desWidget.h" />
     <ClCompile Include="de.cpp" />
+    <ClCompile Include="Dehisto.cpp" />
     <ClCompile Include="desWidget.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="de.h" />
+    <ClInclude Include="Dehisto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

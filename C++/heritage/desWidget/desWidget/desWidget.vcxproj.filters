@@ -43,9 +43,15 @@
     <ClCompile Include="de.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dehisto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="de.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dehisto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
