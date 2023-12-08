@@ -3,6 +3,7 @@
 Dehisto::Dehisto()
 {
 
+
 }
 
 void Dehisto::jet()
@@ -13,7 +14,17 @@ void Dehisto::jet()
 
 void Dehisto::jet(int n)
 {
-	for (int i = 0; i < n; i++) {
+	resultats.clear();  // Pour vider le vecteur resultats et le réinitialiser à vide
+
+	for (int i = 0; i < n; ++i) {
 		(*this)++;
+		valeur += (*this);
+		resultats.push_back(valeur);
 	}
+	
+}
+
+std::vector<int> Dehisto::getResultats() const
+{
+	return resultats;
 }

@@ -7,6 +7,8 @@ desWidget::desWidget(QWidget *parent)
 {
     ui.setupUi(this);
 
+	dehistoX = nullptr;
+	deX = nullptr;
 
 	valTiree = 0;
 	connect(ui.boutonLancerDe, &QPushButton::clicked, this, &desWidget::lancerDe);
@@ -17,14 +19,13 @@ desWidget::desWidget(QWidget *parent)
 	connect(ui.afficherDehisto, &QPushButton::clicked, this, &desWidget::afficheScoreDehisto);
 	connect(ui.tirerNDehisto, &QPushButton::clicked, this, &desWidget::lancerNDehisto);
 
-	
-
-
-
 }
 
 desWidget::~desWidget()
-{}
+{
+	delete deX;
+	delete dehistoX;
+}
 
 void desWidget::lancerDe() {
 	if (deX == nullptr) {
@@ -93,18 +94,24 @@ void desWidget::afficheScoreDehisto()
 
 void desWidget::lancerNDehisto()
 {
+	int nombreDeJets = ui.nbrJets->text().toInt();
 
-	
-	dehistoX->jet();
-	valTiree += (*dehistoX);
-	// Ajoutez la valeur dans le QTableWidget
-	for (int i = 0; i < ui.tableWidget->rowCount() - 1; ++i) {
-		QTableWidgetItem *item = ui.tableWidget->takeItem(i + 1, 0); // Prenez l'élément de la ligne suivante
-		ui.tableWidget->setItem(i, 0, item); // Placez l'élément dans la ligne actuelle
+	if (dehistoX == nullptr) {
+		dehistoX = new Dehisto();
 	}
 
-	// Ajoutez la nouvelle valeur dans la dernière ligne
-	ui.tableWidget->setItem(ui.tableWidget->rowCount() - 1, 0, new QTableWidgetItem(QString::number(valTiree)));
+	dehistoX->jet(nombreDeJets);
+
+	std::vector<int> tab = dehistoX->getResultats();
+	for (size_t y = 0; y < tab.size(); ++y) {
+		for (int i = 0; i < ui.tableWidget->rowCount() - 1; ++i) {
+			QTableWidgetItem *item = ui.tableWidget->takeItem(i + 1, 0);
+			ui.tableWidget->setItem(i, 0, item);
+		}
+		// Ajoutez la nouvelle valeur dans la dernière ligne
+		ui.tableWidget->setItem(ui.tableWidget->rowCount() - 1, 0, new QTableWidgetItem(QString::number(tab[y])));
+	}
 
 }
+
 

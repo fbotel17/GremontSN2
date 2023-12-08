@@ -18,7 +18,7 @@ de::de(int valeurInitiale) : valeur(valeurInitiale) {}
 void de::lancerDe() {
 	valeur = rand() % 6 + 1;
 	this->scoreTotal = scoreTotal + valeur;
-	
+
 }
 
 // Méthode pour remettre le score à 0
