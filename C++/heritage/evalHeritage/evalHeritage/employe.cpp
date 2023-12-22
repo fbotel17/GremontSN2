@@ -1,9 +1,9 @@
 #include "employe.h"
 
-employe::employe(std::string raisonSociale, std::string nom, std::string prenom, int age)
-	: entreprise(raisonSociale), nom(std::move(nom)), prenom(std::move(prenom)), age(age) {
-	salaire = 0;
+employe::employe( std::string nom, std::string prenom, int age, int salaire)
+	:  nom(std::move(nom)), prenom(std::move(prenom)), age(age), salaire(salaire) {
 }
+
 
 
 std::string employe::getNom() {
@@ -20,4 +20,24 @@ int employe::getAge()  {
 
 int employe::getSalaire()  {
 	return salaire;
+}
+
+void employe::setNom(string name)
+{
+	nom = name;
+}
+
+void employe::setPrenom(string name)
+{
+	prenom = name;
+}
+
+void employe::setAge(int nbAge)
+{
+	this->age = nbAge;
+}
+
+void employe::setSalaire(int nbSalaire)
+{
+	salaire = nbSalaire;
 }

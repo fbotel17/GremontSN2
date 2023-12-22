@@ -1,19 +1,35 @@
 #pragma once
-#include <string>
 #include <iostream>
+#include <vector>
 #include "commerciaux.h"
 #include "technicien.h"
+#include "representant.h"
 
-using namespace std;
-
-class entreprise
-{
+class entreprise {
 public:
-	entreprise(string name);
+	entreprise(std::string name, int maxCommerciaux, int maxTechniciens);
+	~entreprise();
 
-protected:
-	string raisonSociale;
-	commerciaux;
+	std::string getRaisonSociale() const;
+	int getNombreMaxCommerciaux() const;
+	void setNombreMaxCommerciaux(int max);
+	int getNombreMaxTechniciens() const;
+	void setNombreMaxTechniciens(int max);
 
+	void ajouterCommercial(commerciaux* commercial);
+	void ajouterTechnicien(technicien* technicien);
+
+	void afficherSalaires() const;
+	
+
+private:
+	std::string raisonSociale;
+	int nombreMaxCommerciaux;
+	int nombreMaxTechniciens;
+	int nombreCommerciaux;
+	int nombreTechniciens;
+
+
+	std::vector<commerciaux*> commerciauxs;
+	std::vector<technicien*> techniciens;
 };
-
