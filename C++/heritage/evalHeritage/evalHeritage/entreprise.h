@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "commerciaux.h"
+#include "technicien.h"
 
 using namespace std;
 
@@ -11,5 +13,7 @@ public:
 
 protected:
 	string raisonSociale;
+	commerciaux;
+
 };
 
