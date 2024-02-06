@@ -23,13 +23,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="PlusieursFormes.qrc">
+    <QtRcc Include="poly.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="PlusieursFormes.ui">
+    <QtUic Include="poly.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <ClCompile Include="PlusieursFormes.cpp">
+    <QtMoc Include="poly.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="poly.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,12 +40,20 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="basehumainform.cpp">
+    <ClCompile Include="BaseHumainForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Humain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="basehumainform.h">
+    <QtMoc Include="BaseHumainForm.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Humain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
