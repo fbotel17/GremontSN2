@@ -19,6 +19,9 @@ public:
 	void ajouterCommercial(commerciaux* commercial);
 	void ajouterTechnicien(technicien* technicien);
 
+	int getNombreVendeurs() const;
+	int getNombreRepresentants() const;
+
 	void afficherSalaires() const;
 	
 
@@ -28,6 +31,9 @@ private:
 	int nombreMaxTechniciens;
 	int nombreCommerciaux;
 	int nombreTechniciens;
+
+	int nombreVendeurs;  // Ajout de variables de suivi
+	int nombreRepresentants;  // Ajout de variables de suivi
 
 
 	std::vector<commerciaux*> commerciauxs;

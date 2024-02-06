@@ -1,5 +1,6 @@
 #include "entreprise.h"
 #include "representant.h"
+#include "vendeur.h"
 
 
 entreprise::entreprise(std::string name, int maxCommerciaux, int maxTechniciens)
@@ -42,6 +43,23 @@ void entreprise::ajouterCommercial(commerciaux* commercial) {
 	if (nombreCommerciaux < nombreMaxCommerciaux) {
 		commerciauxs.push_back(commercial);
 		nombreCommerciaux++;
+
+		if (vendeur* v = dynamic_cast<vendeur*>(commercial)) {
+			if (nombreVendeurs < 2) {
+				nombreVendeurs++;
+			}
+			else {
+				std::cout << "Limite de vendeurs atteinte.\n";
+			}
+		}
+		else if (representant* r = dynamic_cast<representant*>(commercial)) {
+			if (nombreRepresentants < 3) {
+				nombreRepresentants++;
+			}
+			else {
+				std::cout << "Limite de representants atteinte.\n";
+			}
+		}
 	}
 	else {
 		std::cout << "Limite de commerciaux atteinte.\n";
@@ -73,3 +91,10 @@ void entreprise::afficherSalaires() const {
 }
 
 
+int entreprise::getNombreVendeurs() const {
+	return nombreVendeurs;
+}
+
+int entreprise::getNombreRepresentants() const {
+	return nombreRepresentants;
+}
