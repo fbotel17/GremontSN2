@@ -59,8 +59,28 @@ void PleinDeFormes::onSubmitButton()
 	QString ageHumain = ui.AgeEdit->text();
 	QString phoneHumain = ui.PhoneEdit->text();
 	QString emailHumain = ui.MailEdit->text();
+	
 
 	QString adresse = adresse1Humain + " " + adresse2Humain + " " + adresse3Humain;
+
+	QStringList classeValue;
+
+	QComboBox* classeComboBox = nullptr;
+	QWidget* etudiantFormWidget = ui.widget->findChild<QWidget*>("EtudiantForm");
+	if (etudiantFormWidget) {
+		// Recherche du QComboBox à l'intérieur du widget EtudiantForm
+		classeComboBox = etudiantFormWidget->findChild<QComboBox*>("classeComboBox");
+	}
+
+	if (classeComboBox) {
+		QString classeValue = classeComboBox->currentText();
+		// Utilisez classeValue comme nécessaire
+	}
+	else {
+		qDebug() << "Le QComboBox n'a pas été trouvé dans le widget EtudiantForm.";
+	}
+
+
 
 	QStringList matieres;  
 
@@ -86,23 +106,24 @@ void PleinDeFormes::onSubmitButton()
 
 
 	if (ui.EtudButton->isChecked()) {
-		insertIntoDatabase(nameHumain, firstNameHumain, adresse, ageHumain.toInt(), phoneHumain, emailHumain, "etudiant", matieres);
+		insertIntoDatabase(nameHumain, firstNameHumain, adresse, ageHumain.toInt(), phoneHumain, emailHumain, "etudiant", matieres, classeValue);
 	}
 	else if (ui.ProfButton->isChecked()) {
-		insertIntoDatabase(nameHumain, firstNameHumain, adresse, ageHumain.toInt(), phoneHumain, emailHumain, "professeur", matieres);
+		insertIntoDatabaseProf(nameHumain, firstNameHumain, adresse, ageHumain.toInt(), phoneHumain, emailHumain, "professeur");
 	}
 }
 
-void PleinDeFormes::insertIntoDatabase(const QString& nom, const QString& prenom, const QString& adresse, int age, const QString& telephone, const QString& email, const QString& tableName, const QStringList& matieres)
+void PleinDeFormes::insertIntoDatabase(const QString& nom, const QString& prenom, const QString& adresse, int age, const QString& telephone, const QString& email, const QString& tableName, const QStringList& matieres, const QStringList& classeValue)
 {
 	QSqlQuery query;
-	query.prepare("INSERT INTO " + tableName + " (nom, prenom, adresse, age, telephone, email) VALUES (?, ?, ?, ?, ?, ?)");
+	query.prepare("INSERT INTO " + tableName + " (nom, prenom, adresse, age, telephone, email, classe) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	query.addBindValue(nom);
 	query.addBindValue(prenom);
 	query.addBindValue(adresse);
 	query.addBindValue(age);
 	query.addBindValue(telephone);
 	query.addBindValue(email);
+	query.addBindValue(classeValue);
 
 	if (query.exec()) {
 		qDebug() << "Enregistrement réussi dans la table " << tableName;
@@ -121,6 +142,26 @@ void PleinDeFormes::insertIntoDatabase(const QString& nom, const QString& prenom
 		}
 
 		qDebug() << "Matieres insérées dans la table MatiereEtudiant";
+	}
+	else {
+		qCritical() << "Erreur lors de l'enregistrement dans la table " << tableName << " : " << query.lastError().text();
+	}
+}
+
+void PleinDeFormes::insertIntoDatabaseProf(const QString& nom, const QString& prenom, const QString& adresse, int age, const QString& telephone, const QString& email, const QString& tableName)
+{
+	QSqlQuery query;
+	query.prepare("INSERT INTO " + tableName + " (nom, prenom, adresse, age, telephone, email) VALUES (?, ?, ?, ?, ?, ?)");
+	query.addBindValue(nom);
+	query.addBindValue(prenom);
+	query.addBindValue(adresse);
+	query.addBindValue(age);
+	query.addBindValue(telephone);
+	query.addBindValue(email);
+
+	if (query.exec()) {
+		qDebug() << "Enregistrement réussi dans la table " << tableName;
+
 	}
 	else {
 		qCritical() << "Erreur lors de l'enregistrement dans la table " << tableName << " : " << query.lastError().text();

@@ -11,6 +11,7 @@ Form::Form(QObject* parent)
 	:QObject(parent)
 {
 	parentLayout = nullptr;
+
 }
 
 Form::~Form()

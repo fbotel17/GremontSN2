@@ -1,5 +1,8 @@
 #include "BaseHumainForm.h"
 #include "Etudiant.h"
+#include "ProfesseurForm.h" // Ajouter l'inclusion du fichier d'en-tête de ProfesseurForm
+#include <qdebug.h>
+
 
 BaseHumainForm::BaseHumainForm(QWidget* parent)
 	:QWidget(parent)
@@ -23,6 +26,9 @@ void BaseHumainForm::display(ActiveForm formMode)
 	}
 	else if (formMode == PROF)
 	{
+		qDebug() << "Creating ProfesseurForm...";
+		form = new ProfesseurForm();
+		form->generateForm(this, containerLayout);
 
 	}
 }

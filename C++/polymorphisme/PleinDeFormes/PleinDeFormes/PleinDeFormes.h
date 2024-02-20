@@ -18,7 +18,8 @@ private slots:
 public:
     PleinDeFormes(QWidget *parent = nullptr);
     ~PleinDeFormes();
-	void PleinDeFormes::insertIntoDatabase(const QString& nom, const QString& prenom, const QString& adresse, int age, const QString& telephone, const QString& email, const QString& tableName, const QStringList& matieres);
+	void PleinDeFormes::insertIntoDatabase(const QString& nom, const QString& prenom, const QString& adresse, int age, const QString& telephone, const QString& email, const QString& tableName, const QStringList& matieres, const QStringList& classeValue);
+	void PleinDeFormes::insertIntoDatabaseProf(const QString& nom, const QString& prenom, const QString& adresse, int age, const QString& telephone, const QString& email, const QString& tableName);
 
 
 private:

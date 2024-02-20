@@ -61,6 +61,9 @@
     <ClCompile Include="ActiveForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ProfesseurForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="BaseHumainForm.h">
@@ -70,6 +73,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="EtudiantForm.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ProfesseurForm.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

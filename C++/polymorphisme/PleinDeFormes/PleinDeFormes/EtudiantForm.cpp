@@ -20,11 +20,15 @@ void EtudiantForm::generateForm(QWidget* parent, QLayout* container)
     matiereListModel = new QStringListModel();
     matiereNoteTableView = new QTableView();
     matiereNoteTableView->setModel(matiereListModel);
-    matiereNoteTableView->setEditTriggers(QAbstractItemView::DoubleClicked | QAbstractItemView::EditKeyPressed | QAbstractItemView::AnyKeyPressed);
+    matiereNoteTableView->setEditTriggers(QAbstractItemView::DoubleClicked | QAbstractItemView::EditKeyPressed );
     topLayout->addWidget(matiereNoteTableView);
     addAllocatedObject(matiereNoteTableView);
 
     classeComboBox = new QComboBox();
+	classeComboBox->addItem("SN1");
+	classeComboBox->addItem("SN2");
+	classeComboBox->addItem("E1");
+	classeComboBox->addItem("E2");
     bottomLayout->addWidget(classeComboBox);
     addAllocatedObject(classeComboBox);
 
@@ -47,25 +51,35 @@ void EtudiantForm::generateForm(QWidget* parent, QLayout* container)
 
 void EtudiantForm::onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-    Q_UNUSED(bottomRight)
-    Q_UNUSED(roles)
+	Q_UNUSED(bottomRight)
+		Q_UNUSED(roles)
 
-    // Vérifier si la dernière ligne est modifiée
-    if (matiereListModel->rowCount() - 1 == topLeft.row())
-    {
-        // Récupérer le texte de la dernière ligne
-        QString text = matiereListModel->data(topLeft).toString();
+		// Vérifier si la modification provient de l'utilisateur
+		if (topLeft.isValid() && topLeft.flags() & Qt::ItemIsUserCheckable)
+		{
+			// Vérifier si toutes les lignes sont vides
+			bool allRowsEmpty = true;
+			for (int row = 0; row < matiereListModel->rowCount(); ++row)
+			{
+				QString text = matiereListModel->index(row, 0).data().toString();
+				if (!text.isEmpty())
+				{
+					allRowsEmpty = false;
+					break;
+				}
+			}
 
-        // Si la dernière ligne est vide, et qu'il y a plus d'une ligne dans la liste, la supprimer
-        if (text.isEmpty() && matiereListModel->rowCount() > 1)
-        {
-            matiereListModel->removeRow(matiereListModel->rowCount() - 1);
-        }
-        // Si la dernière ligne n'est pas vide, ajouter une nouvelle ligne vide
-        else if (!text.isEmpty())
-        {
-            matiereListModel->insertRow(matiereListModel->rowCount());
-        }
-    }
+			// Supprimer la dernière ligne vide uniquement si toutes les lignes sont vides
+			if (allRowsEmpty && matiereListModel->rowCount() > 1)
+			{
+				matiereListModel->removeRow(matiereListModel->rowCount() - 1);
+			}
+			// Ajouter une nouvelle ligne vide si la dernière ligne n'est pas vide
+			else if (!allRowsEmpty)
+			{
+				matiereListModel->insertRow(matiereListModel->rowCount());
+			}
+		}
 }
+
 

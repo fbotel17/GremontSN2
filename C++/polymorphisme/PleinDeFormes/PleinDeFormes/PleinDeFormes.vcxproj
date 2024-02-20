@@ -91,6 +91,7 @@
   <ItemGroup>
     <ClCompile Include="ActiveForm.cpp" />
     <ClCompile Include="Professeur.cpp" />
+    <ClCompile Include="ProfesseurForm.cpp" />
     <QtRcc Include="PleinDeFormes.qrc" />
     <QtUic Include="PleinDeFormes.ui" />
     <QtMoc Include="PleinDeFormes.h" />
@@ -108,6 +109,7 @@
   <ItemGroup>
     <ClInclude Include="ActiveForm.h" />
     <ClInclude Include="Professeur.h" />
+    <QtMoc Include="ProfesseurForm.h" />
     <QtMoc Include="EtudiantForm.h" />
     <QtMoc Include="Form.h" />
     <ClInclude Include="Etudiant.h" />

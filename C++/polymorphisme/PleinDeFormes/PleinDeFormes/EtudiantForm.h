@@ -4,6 +4,8 @@
 #include <QTableView>
 #include <QLabel>
 #include <QStringListModel>
+#include <QTextEdit>  // N'oublie pas d'inclure QTextEdit
+
 
 class EtudiantForm : public Form
 {
