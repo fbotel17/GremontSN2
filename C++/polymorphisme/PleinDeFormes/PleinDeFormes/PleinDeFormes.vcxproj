@@ -17,7 +17,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9C7BC36E-2C53-4920-A5AF-6700EAD1081B}</ProjectGuid>
+    <ProjectGuid>{9C051522-24FF-4333-B78C-99AFD9FB4E27}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.14393.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.14393.0</WindowsTargetPlatformVersion>
@@ -38,12 +38,12 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>5.14.2_msvc2017_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;gui;widgets;sql</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>5.14.2_msvc2017_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;gui;widgets;sql</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
@@ -89,18 +89,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="poly.qrc" />
-    <QtUic Include="poly.ui" />
-    <QtMoc Include="poly.h" />
+    <ClCompile Include="ActiveForm.cpp" />
+    <ClCompile Include="Professeur.cpp" />
+    <QtRcc Include="PleinDeFormes.qrc" />
+    <QtUic Include="PleinDeFormes.ui" />
+    <QtMoc Include="PleinDeFormes.h" />
     <ClCompile Include="BaseHumainForm.cpp" />
+    <ClCompile Include="Etudiant.cpp" />
+    <ClCompile Include="EtudiantForm.cpp" />
+    <ClCompile Include="Form.cpp" />
     <ClCompile Include="Humain.cpp" />
-    <ClCompile Include="poly.cpp" />
+    <ClCompile Include="PleinDeFormes.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="BaseHumainForm.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActiveForm.h" />
+    <ClInclude Include="Professeur.h" />
+    <QtMoc Include="EtudiantForm.h" />
+    <QtMoc Include="Form.h" />
+    <ClInclude Include="Etudiant.h" />
     <ClInclude Include="Humain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

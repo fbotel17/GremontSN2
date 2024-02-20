@@ -23,16 +23,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="poly.qrc">
+    <QtRcc Include="PleinDeFormes.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="poly.ui">
+    <QtUic Include="PleinDeFormes.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="poly.h">
+    <QtMoc Include="PleinDeFormes.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="poly.cpp">
+    <ClCompile Include="PleinDeFormes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -46,14 +46,44 @@
     <ClCompile Include="Humain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Form.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EtudiantForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Etudiant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Professeur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActiveForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="BaseHumainForm.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Form.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="EtudiantForm.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Humain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Etudiant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Professeur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActiveForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

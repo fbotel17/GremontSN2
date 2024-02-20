@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>polyClass</class>
- <widget class="QMainWindow" name="polyClass">
+ <class>PleinDeFormesClass</class>
+ <widget class="QMainWindow" name="PleinDeFormesClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>949</width>
-    <height>642</height>
+    <width>1087</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>STS La Providence </string>
+   <string>STS La Providence</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <layout class="QVBoxLayout" name="MainverticalLayout">
+     <layout class="QVBoxLayout" name="MainLayout">
       <item>
-       <layout class="QHBoxLayout" name="TitleLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QLabel" name="label">
-          <property name="minimumSize">
+         <widget class="QLabel" name="TitleLabel">
+          <property name="maximumSize">
            <size>
-            <width>0</width>
-            <height>30</height>
+            <width>16777215</width>
+            <height>40</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>20</pointsize>
+            <pointsize>17</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
           <property name="text">
-           <string>Ajout d'une personne</string>
+           <string>Ajouter une personne</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -47,158 +47,135 @@
       <item>
        <layout class="QHBoxLayout" name="FormContainerLayout">
         <item>
-         <layout class="QFormLayout" name="LeftFormLayout">
+         <layout class="QFormLayout" name="FormLayoutLeft">
           <item row="0" column="0">
-           <widget class="QLabel" name="NameLabel">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
+           <widget class="QLabel" name="NomLabel">
             <property name="text">
              <string>Nom :</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="NameLineEdit"/>
+           <widget class="QLineEdit" name="NameEdit"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="FirstNameLabel">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
             <property name="text">
-             <string>Prenom :</string>
+             <string>Prénom :</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="FirstNameLineEdit"/>
+           <widget class="QLineEdit" name="FirstNameEdit"/>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
+           <widget class="QLabel" name="AdressLabel">
             <property name="text">
              <string>Adresse :</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="lineEdit_4"/>
+           <widget class="QLineEdit" name="AdresseEdit"/>
           </item>
           <item row="3" column="1">
-           <widget class="QLineEdit" name="lineEdit_5"/>
+           <widget class="QLineEdit" name="AdresseEdit2"/>
           </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="space1">
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="AdresseEdit3"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_12">
             <property name="text">
              <string/>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="lineEdit_9"/>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="StatusLabel">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Titre : </string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item row="6" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <layout class="QHBoxLayout" name="RadioButtonHorizontalLayout">
-              <item>
-               <widget class="QRadioButton" name="ProfRadioButton">
-                <property name="text">
-                 <string>Professeur</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="StudentRadioButton">
-                <property name="text">
-                 <string>Etudiant</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <widget class="QRadioButton" name="ProfButton">
+              <property name="text">
+               <string>Professeur</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="EtudButton">
+              <property name="text">
+               <string>Etudiant</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
           <item row="6" column="0">
-           <widget class="QLabel" name="space2">
+           <widget class="QLabel" name="TitreLabel">
             <property name="text">
-             <string/>
+             <string>Titre :</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QFormLayout" name="RightFormLayout">
+         <layout class="QFormLayout" name="FormLayoutRight">
           <item row="0" column="0">
            <widget class="QLabel" name="AgeLabel">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Age :</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="AgeLineEdit"/>
+           <widget class="QLineEdit" name="AgeEdit"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="PhoneLabel">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Téléphone :</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="PhoneLineEdit"/>
+           <widget class="QLineEdit" name="PhoneEdit"/>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="MailLabel">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
+           <widget class="QLabel" name="EmailLabel">
             <property name="text">
              <string>Email :</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="MailLineEdit"/>
+           <widget class="QLineEdit" name="MailEdit"/>
           </item>
          </layout>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="BaseHumainForm" name="widget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>300</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="okBtn">
+        <property name="text">
+         <string>OK</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -209,11 +186,11 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>949</width>
+     <width>1087</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFichier">
+   <widget class="QMenu" name="menuAjouter">
     <property name="title">
      <string>Fichier</string>
     </property>
@@ -221,7 +198,7 @@
     <addaction name="actionAffichage"/>
     <addaction name="actionQuitter"/>
    </widget>
-   <addaction name="menuFichier"/>
+   <addaction name="menuAjouter"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -232,6 +209,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
   <action name="actionAjouter">
    <property name="text">
     <string>Ajouter</string>
@@ -242,15 +224,18 @@
     <string>Affichage</string>
    </property>
   </action>
-  <action name="actionQuitter">
-   <property name="text">
-    <string>Quitter</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>BaseHumainForm</class>
+   <extends>QWidget</extends>
+   <header>basehumainform.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
-  <include location="poly.qrc"/>
+  <include location="PleinDeFormes.qrc"/>
  </resources>
  <connections/>
 </ui>
